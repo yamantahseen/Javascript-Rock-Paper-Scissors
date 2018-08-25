@@ -1,0 +1,85 @@
+<html>
+<script>
+    function computerPlay() {
+        let x = Math.floor(Math.random() * 3);
+        if (x == 0)
+            return "rock";
+        else if (x == 1)
+            return "paper";
+        else
+            return "scissors";
+    }
+    function round() {
+        let playermove = prompt("enter your move: ");
+        playermove.toLowerCase();
+        let computermove = computerPlay()
+        alert("the computer plays: " + computermove + '\n');
+        if (playermove == 'rock') {
+            if (computermove == "rock") {
+                alert("Draw\n");
+                return 0;
+            }
+            if (computermove == 'paper') {
+                alert("You Lose! Paper beats Rock\n");
+                return -1;
+            }
+            if (computermove == 'scissors') {
+                alert("You Win! rock beats scissors\n");
+                return 1;
+            }
+        }
+        if (playermove == 'paper') {
+            if (computermove == 'paper') {
+                alert("Draw\n");
+                return 0;
+            }
+            if (computermove == 'scissors') {
+                alert("You Lose! Scissors beats Paper\n");
+                return -1;
+            }
+            if (computermove == 'rock') {
+                alert("You Win! Paper beats Rock\n");
+                return 1;
+            }
+        }
+        if (playermove == 'scissors') {
+            if (computermove == 'scissors') {
+                alert("Draw\n");
+                return 0;
+            }
+            if (computermove == 'rock') {
+                alert("You Lose! Rock beats Scissors\n");
+                return -1;
+            }
+            if (computermove == 'paper') {
+                alert("You Win! Scissors beats Paper\n");
+                return 1;
+            }
+        }
+    }
+    function game() {
+        let score = 0;
+        alert("Round 1:\n");
+        score += round();
+        alert("Round 2:\n");
+        score += round();
+        alert("Round 3:\n");
+        score += round();
+        alert("Round 4:\n");
+        score += round();
+        alert("Round 5:\n");
+        score += round();
+        alert("you score is: " + score);
+        if (score == 0)
+            alert("\nIt's a Draw");
+        if (score > 0)
+            alert("\n You Win!");
+        if (score < 0)
+            alert("\n You Lose!");
+    }
+
+    game();
+
+</script>
+
+</html>
